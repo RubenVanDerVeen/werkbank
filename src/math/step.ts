@@ -50,10 +50,10 @@ function tfToCanonical(sys: Tf) {
   // Controller canonical form (SISO)
   const A: number[][] = Array.from({ length: n }, () => new Array(n).fill(0));
   for (let i = 1; i < n; i++) A[i - 1]![i] = 1;
-  for (let i = 0; i < n; i++) A[n - 1]![i] = -(den[i + 1] ?? 0);
+  for (let i = 0; i < n; i++) A[n - 1]![i] = -(den[n - i] ?? 0);
   // Above simplified: assume n is small; for n<2 fallback handled below.
   if (n >= 2) {
-    for (let i = 0; i < n; i++) A[n - 1]![i] = -(den[i + 1] ?? 0);
+    for (let i = 0; i < n; i++) A[n - 1]![i] = -(den[n - i] ?? 0);
   }
   const B = new Array(n).fill(0); B[n - 1] = num[num.length - 1] ?? 0;
   // C in observer canonical: depends on num coefficients; for step input shape we use y = C x where C is constructed below.

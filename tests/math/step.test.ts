@@ -18,3 +18,12 @@ test('closedLoop of unity-feedback plant 1/(s(s+1)) is stable', () => {
   assert.equal(cl.num[0], 1);
   assert.equal(cl.den[0], 1);
 });
+
+test('second-order 1/(s^2+3s+2) step response reaches steady state 0.5', () => {
+  const sys = tfFromCoeffs([1], [1, 3, 2]);
+  const y = stepResponse(sys, 8, 0.01);
+  const at5 = y.find((p) => Math.abs(p.t - 5) < 0.05);
+  assert.ok(at5, 'no point near t=5');
+  // Steady-state of 1/(s+1)(s+2) with unit step is 1/(1*2) = 0.5
+  assert.ok(Math.abs(at5!.y - 0.5) < 0.02, `y(t=5)=${at5!.y}`);
+});
