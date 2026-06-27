@@ -80,7 +80,7 @@ function advancePlant(x: number[], _num: number[], den: number[], u: number, dt:
   const A = Array.from({ length: n }, () => new Array(n).fill(0));
   for (let i = 1; i < n; i++) A[i - 1]![i] = 1;
   for (let i = 0; i < n; i++) A[n - 1]![i] = -(den[i + 1] ?? 0);
-  const B = new Array(n).fill(0); B[n - 1] = 0; // input enters via last row's constant; simplified for v1
+  const B = new Array(n).fill(0); B[n - 1] = 1; // input enters via last row; simplified for v1
   const dx = A.map((row, i) => row.reduce((acc, v, j) => acc + v * (x[j] ?? 0), 0) + (B[i] ?? 0) * u);
   for (let i = 0; i < n; i++) x[i] = (x[i] ?? 0) + dt * (dx[i] ?? 0);
 }
