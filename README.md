@@ -28,3 +28,10 @@ Output goes to `dist/`. Drop on any static host (GitHub Pages, Netlify, …).
 1. Create `src/modules/<id>/module.ts` exporting `Module`.
 2. Add the import to `src/registry.ts`.
 3. Done. The homepage and dispatcher pick it up automatically.
+
+## Modules
+
+- **Transfer Function** — poles, zeros, Bode, step response.
+- **PID Tuner** — closed-loop response with live Kp/Ki/Kd sliders.
+- **Routh-Hurwitz** — stability from characteristic polynomial.
+- **Fourier Series** — partial-sum reconstruction with adjustable harmonics.
