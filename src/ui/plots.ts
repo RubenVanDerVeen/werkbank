@@ -1,5 +1,9 @@
 import uPlot from 'uplot';
-import 'uplot/dist/uPlot.min.css';
+// Vite bundles this CSS into the build. Node's test runner can't load .css,
+// so guard the import — it only fires when a DOM is present.
+if (typeof document !== 'undefined') {
+  void import('uplot/dist/uPlot.min.css');
+}
 
 export type XY = { x: number; y: number }[];
 
