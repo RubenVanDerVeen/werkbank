@@ -47,7 +47,7 @@ export function partialSum(a: number[], t: number, period = 1): number {
 export function sampleWaveform(wave: Waveform, t: number, period = 1): number {
   const x = ((t / period) % 1 + 1) % 1;
   switch (wave) {
-    case 'square': return x < 0.5 ? 1 : -1;
+    case 'square': return Math.cos(2 * Math.PI * t / period) > 0 ? 1 : -1;
     case 'triangle': return 4 * Math.abs(x - 0.5) - 1;
     case 'sawtooth': return 2 * x - 1;
     case 'pulse': return x < 0.5 ? 1 : 0;
