@@ -8,5 +8,6 @@ import { module as bjtDc } from './modules/bjt-dc/module.ts';
 import { module as diodeShaping } from './modules/diode-shaping/module.ts';
 import { module as fetAmp } from './modules/fet-amp/module.ts';
 import { module as opamp } from './modules/opamp/module.ts';
+import { module as multistage } from './modules/multistage/module.ts';
 
-export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp];
+export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp, multistage];
