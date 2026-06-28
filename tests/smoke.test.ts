@@ -40,3 +40,8 @@ test('power-amp module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'power-amp');
   assert.ok(m && m.course === 'Elektronica1B', 'power-amp missing');
 });
+
+test('oscillator module registered under Elektronica1B', () => {
+  const m = modules.find((x) => x.id === 'oscillator');
+  assert.ok(m && m.course === 'Elektronica1B', 'oscillator missing');
+});
