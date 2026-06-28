@@ -58,9 +58,9 @@ export interface Metrics { Vpeak_out: number; Vavg: number; Vripple_pp: number }
 
 export function metrics(vout: number[], _dt: number): Metrics {
   const Vpeak_out = Math.max(...vout);
-  const Vavg = vout.reduce((a, b) => a + b, 0) / vout.length;
-  // Ripple: peak-to-peak over the last cycle (steady state)
+  // Vavg and ripple over the last cycle (steady state)
   const lastCycle = vout.slice(Math.floor(vout.length / 2));
+  const Vavg = lastCycle.reduce((a, b) => a + b, 0) / lastCycle.length;
   const Vripple_pp = Math.max(...lastCycle) - Math.min(...lastCycle);
   return { Vpeak_out, Vavg, Vripple_pp };
 }
