@@ -15,17 +15,11 @@ export interface BiasResult {
 export function bias(network: Network, p: BiasParams): BiasResult {
   const r = compute(network, p);
   const iMax = p.VCC / (p.RC + (p.RE ?? 0)); // mA (kΩ → mA)
-  const result: BiasResult = {
-    IB_uA: r.IB * 1000, ICmA: r.IC, VCE: r.VCE, VCB: r.VCE - (r.VCE - r.VCB),
+  return {
+    IB_uA: r.IB * 1000, ICmA: r.IC, VCE: r.VCE, VCB: r.VCB,
     region: regionOf(r.IB, r.IC, r.VCB, p.VCEsat),
     loadLine: { iMax_mA: iMax, vMax: p.VCC },
   };
-  // Recompute VCB correctly: VC - VB. VC = VCC - IC·RC. For fixed-bias VB = VBEon.
-  // For divider, VB = VCC·R2/(R1+R2). For emitter-feedback, VB = VBEon + IE·RE.
-  // Simpler: VCB = VCE - VBEon (since VBE = VB - VE = VBEon, so VB = VE + VBEon, VCB = VC - VB = (VCE+VE) - (VE+VBEon) = VCE - VBEon).
-  result.VCB = r.VCE - p.VBEon;
-  result.region = regionOf(r.IB, r.IC, result.VCB, p.VCEsat);
-  return result;
 }
 
 function compute(network: Network, p: BiasParams): { IB: number; IC: number; VCE: number; VCB: number } {
