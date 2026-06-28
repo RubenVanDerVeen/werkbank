@@ -50,3 +50,8 @@ test('active-filter module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'active-filter');
   assert.ok(m && m.course === 'Elektronica1B', 'active-filter missing');
 });
+
+test('comparator module registered under Elektronica1B', () => {
+  const m = modules.find((x) => x.id === 'comparator');
+  assert.ok(m && m.course === 'Elektronica1B', 'comparator missing');
+});
