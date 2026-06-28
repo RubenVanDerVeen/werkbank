@@ -45,3 +45,13 @@ test('CB: Av ≈ +133.3, Zin_device ≈ 0.0236k', () => {
   assert.ok(Math.abs(r.Av - 133.333) < 1, `Av=${r.Av}`);
   assert.ok(Math.abs(r.Zin_device_kOhm - 0.0236) < 0.005, `Zin=${r.Zin_device_kOhm}`);
 });
+
+test('Ai is finite at RL=0 (no NaN from /0)', () => {
+  for (const cfg of ['CE', 'CB', 'CC'] as const) {
+    const r = analyze(cfg, {
+      beta: 100, ICmA: 1, VTmV: 25,
+      RC_kOhm: 5, RE_kOhm: 0.5, RL_kOhm: 0, Rs_kOhm: 1, RB_kOhm: Infinity, REbypassed: true,
+    });
+    assert.ok(Number.isFinite(r.Ai), `${cfg}: Ai=${r.Ai}`);
+  }
+});

@@ -77,7 +77,7 @@ function solveCE(gm: number, rpi: number, beta: number, RC: number, RL: number, 
   const Zin_device = (!bypassed && RE > 0) ? rpi + (beta + 1) * RE : rpi;
   const Zin = parallel(RB, Zin_device);
   const Zout = RC; // ro omitted
-  const Ai = Av * Zin / RL;
+  const Ai = RL > 0 ? Av * Zin / RL : 0; // ponytail: guard RL=0 (slider min) → NaN; 0 = no load current
   return { Av, Ai, Zin_device_kOhm: Zin_device, Zin_kOhm: Zin, Zout_kOhm: Zout };
 }
 
@@ -96,7 +96,7 @@ function solveCB(gm: number, rpi: number, RC: number, RL: number, RE: number, Rs
   const Zin_device = 1 / (1/RE + 1/rpi + gm);
   const Zin = Zin_device; // RB doesn't load emitter
   const Zout = RC;
-  const Ai = Av * Zin / RL;
+  const Ai = RL > 0 ? Av * Zin / RL : 0; // ponytail: guard RL=0 (slider min) → NaN; 0 = no load current
   return { Av, Ai, Zin_device_kOhm: Zin_device, Zin_kOhm: Zin, Zout_kOhm: Zout };
 }
 
@@ -119,6 +119,6 @@ function solveCC(gm: number, rpi: number, beta: number, RE: number, RL: number, 
   const Zin_device = rpi + (beta + 1) * parallel(RE, RL);
   const Zin = parallel(RB, Zin_device);
   const Zout = parallel((rpi + Rs) / (beta + 1), RE); // emitter-follower Zout incl. Rs; → 1/gm when Rs small
-  const Ai = Av * Zin / RL;
+  const Ai = RL > 0 ? Av * Zin / RL : 0; // ponytail: guard RL=0 (slider min) → NaN; 0 = no load current
   return { Av, Ai, Zin_device_kOhm: Zin_device, Zin_kOhm: Zin, Zout_kOhm: Zout };
 }
