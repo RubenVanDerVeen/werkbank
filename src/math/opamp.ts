@@ -70,9 +70,9 @@ export function analyze(config: Config, p: OpampParams): OpampResult {
   return { Av, Vout, Zin_kOhm: Zin, region, transferExpr: expr };
 }
 
-export function transfer(config: Config, p: OpampParams, vinArray: number[]): number[] {
-  return vinArray.map((vin) => {
-    const r = analyze(config, { ...p, Vin: vin, V1: p.V1 ?? 0, V2: p.V2 ?? vin });
-    return r.Vout;
-  });
+// Summing/difference have no single Vin; their transfer curve sweeps V1 with V2
+// fixed (spec R74). Everything else sweeps Vin.
+export function transfer(config: Config, p: OpampParams, sweep: number[]): number[] {
+  const sweepsV1 = config === 'summing' || config === 'difference';
+  return sweep.map((x) => analyze(config, sweepsV1 ? { ...p, V1: x } : { ...p, Vin: x }).Vout);
 }

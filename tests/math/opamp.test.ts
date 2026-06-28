@@ -41,6 +41,22 @@ test('difference: Vout = (R2/R1)·(V2-V1) = +1.0', () => {
   assert.equal(r.region, 'linear');
 });
 
+test('transfer: difference sweeps V1 with V2 fixed (not a flat line)', () => {
+  // Vout = (R2/R1)·(V2 - V1) = -(V1) with R1=R2, V2=0 → slope -1.
+  const ys = transfer('difference', { R1: 10, R2: 10, Vcc: 15, V2: 0 }, [-1, 0, 1]);
+  assert.ok(Math.abs(ys[0]! - 1) < 1e-9, `ys0=${ys[0]}`);
+  assert.ok(Math.abs(ys[1]! - 0) < 1e-9, `ys1=${ys[1]}`);
+  assert.ok(Math.abs(ys[2]! - (-1)) < 1e-9, `ys2=${ys[2]}`);
+});
+
+test('transfer: summing sweeps V1 with V2 fixed (not a flat line)', () => {
+  // Vout = -Rf·(V1/R1 + V2/R2) = -(V1) with Rf=R1, V2=0 → slope -1.
+  const ys = transfer('summing', { R1: 10, R2: 10, Rf: 10, Vcc: 15, V2: 0 }, [-1, 0, 1]);
+  assert.ok(Math.abs(ys[0]! - 1) < 1e-9, `ys0=${ys[0]}`);
+  assert.ok(Math.abs(ys[1]! - 0) < 1e-9, `ys1=${ys[1]}`);
+  assert.ok(Math.abs(ys[2]! - (-1)) < 1e-9, `ys2=${ys[2]}`);
+});
+
 test('transfer: inverting sweep shows linear region and two saturation plateaus', () => {
   const xs = [-3, -1.5, 0, 1.5, 3];
   const ys = transfer('inverting', { R1: 10, Rf: 100, Vcc: 15 }, xs);

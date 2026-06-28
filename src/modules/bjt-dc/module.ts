@@ -125,7 +125,7 @@ function line(svg: SVGSVGElement, x1: number, y1: number, x2: number, y2: number
 export const module: Module = {
   id: 'bjt-dc',
   title: 'BJT DC Bias',
-  course: 'Elektronika1A',
+  course: 'Elektronica1A',
   description: 'DC bias, Q-point and load line on the output characteristics.',
   icon: 'Q',
   render,

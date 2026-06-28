@@ -69,7 +69,7 @@ function linspace(lo: number, hi: number, n: number): number[] {
 export const module: Module = {
   id: 'bjt-amp',
   title: 'BJT Amplifiers',
-  course: 'Elektronika1A',
+  course: 'Elektronica1A',
   description: 'Hybrid-π small-signal analysis for CE/CB/CC amplifiers.',
   icon: 'Av',
   render,

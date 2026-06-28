@@ -44,7 +44,7 @@ function render(host: HTMLElement) {
     readouts.innerHTML = `
       <div><b>Av:</b> ${r.Av.toFixed(3)}</div>
       <div><b>Ai:</b> ${r.Ai.toFixed(3)}</div>
-      <div><b>Zin:</b> ${r.Zin_MOhm.toFixed(4)} MΩ</div>
+      <div><b>Zin:</b> ${cfg === 'CG' ? `${(r.Zin_MOhm * 1000).toFixed(3)} kΩ` : `${r.Zin_MOhm.toFixed(3)} MΩ`}</div>
       <div><b>Zout:</b> ${r.Zout_kOhm.toFixed(3)} kΩ</div>
     `;
     const xs = linspace(0.1, 20, 60);
@@ -78,7 +78,7 @@ function linspace(lo: number, hi: number, n: number): number[] {
 export const module: Module = {
   id: 'fet-amp',
   title: 'FET Amplifiers',
-  course: 'Elektronika1A',
+  course: 'Elektronica1A',
   description: 'FET small-signal analysis for CS/CD/CG amplifiers (MOSFET & JFET).',
   icon: 'gm',
   render,

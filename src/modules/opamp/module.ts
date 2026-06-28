@@ -50,14 +50,18 @@ function render(host: HTMLElement) {
       <div><b>region:</b> <span style="color:${regionColor};font-weight:bold;">${r.region}</span></div>
     `;
 
-    // Sweep range: ±2·Vcc/|Av| so both knees are visible; for follower Av=1 → ±2·Vcc.
-    const AvAbs = Math.abs(r.Av) > 0 && Number.isFinite(r.Av) ? Math.abs(r.Av) : 1;
-    const xMax = 2 * Vcc.value() / AvAbs;
+    // Summing/difference sweep V1 (V2 fixed); the rest sweep Vin.
+    const sweepsV1 = cfg === 'summing' || cfg === 'difference';
+    // Sweep range: ±2·Vcc/|slope| so both knees are visible; follower slope=1 → ±2·Vcc.
+    // Summing has no single Av, so its V1-slope is Rf/R1.
+    let slopeAbs = cfg === 'summing' ? Rf.value() / R1.value() : Math.abs(r.Av);
+    if (!(slopeAbs > 0) || !Number.isFinite(slopeAbs)) slopeAbs = 1;
+    const xMax = 2 * Vcc.value() / slopeAbs;
     const xs = linspace(-xMax, xMax, 200);
     const ys = transfer(cfg, params, xs);
     linePlot(plotHost, [
-      { label: 'Vout vs Vin', data: xs.map((x, i) => ({ x, y: ys[i]! })) },
-    ], { xLabel: 'Vin (V)', yLabel: 'Vout (V)' });
+      { label: sweepsV1 ? 'Vout vs V1' : 'Vout vs Vin', data: xs.map((x, i) => ({ x, y: ys[i]! })) },
+    ], { xLabel: sweepsV1 ? 'V1 (V)' : 'Vin (V)', yLabel: 'Vout (V)' });
   };
 
   for (const w of [config, R1, R2, Rf, Rg, Vcc, Vin, V1, V2]) {
@@ -77,7 +81,7 @@ function linspace(lo: number, hi: number, n: number): number[] {
 export const module: Module = {
   id: 'opamp',
   title: 'Op-Amp Circuits',
-  course: 'Elektronika1A',
+  course: 'Elektronica1A',
   description: 'Ideal op-amp configurations with saturation-aware transfer curve.',
   icon: '∞',
   render,

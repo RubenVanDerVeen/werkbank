@@ -62,7 +62,7 @@ function render(host: HTMLElement) {
 export const module: Module = {
   id: 'diode-shaping',
   title: 'Diode Wave-Shaping',
-  course: 'Elektronika1A',
+  course: 'Elektronica1A',
   description: 'Clippers, clampers, rectifiers — see the waveform reshape.',
   icon: '▶|',
   render,
