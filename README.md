@@ -47,6 +47,7 @@ and numbers update live.
 
 - **Amplifier Frequency Response** — single-stage fL/fH/midband gain with a Bode plot.
 - **Negative Feedback** — four topologies: loop gain, closed-loop gain, Zin/Zout impact.
+- **Power Amplifiers** — Class A/B/AB output power, efficiency, and crossover transfer curve.
 
 ## Develop
 

@@ -16,6 +16,7 @@ All notable changes to Werkbank are documented here. Format follows [Keep a Chan
 - Negative Feedback module: four topologies with loop gain, closed-loop gain, and Zin/Zout modification.
 - Differential Amplifier module: BJT pair with current-mirror tail, Ad/Acm/CMRR/Rid and a CMRR-vs-REE sweep.
 - Amplifier Frequency Response module: single-stage CE/CS fL, fH (Miller), midband gain, and Bode plot.
+- Power Amplifiers module: Class A/B/AB output power, efficiency, and crossover transfer curve.
 
 ## [0.1.0] - 2026-06-27
 
