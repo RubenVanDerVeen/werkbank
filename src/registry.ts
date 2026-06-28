@@ -11,5 +11,6 @@ import { module as opamp } from './modules/opamp/module.ts';
 import { module as multistage } from './modules/multistage/module.ts';
 import { module as diffAmp } from './modules/diff-amp/module.ts';
 import { module as feedback } from './modules/feedback/module.ts';
+import { module as freqResponse } from './modules/freq-response/module.ts';
 
-export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp, multistage, diffAmp, feedback];
+export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp, multistage, diffAmp, feedback, freqResponse];
