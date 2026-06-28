@@ -2,6 +2,16 @@
 
 All notable changes to Werkbank are documented here. Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- BJT Amplifiers module: hybrid-π small-signal analysis for CE/CB/CC configurations with Av/IC sweep plot.
+- BJT DC Bias module: Q-point, region detection, and DC load line for fixed, voltage-divider, and emitter-feedback networks.
+- Diode Wave-Shaping module: five canonical topologies with input/output waveform overlay and ripple readout.
+- FET Amplifiers module: CS/CD/CG small-signal analysis for MOSFET and JFET with Av/IDQ sweep plot.
+- Op-Amp Circuits module: inverting, non-inverting, follower, summing, difference with saturation-aware transfer plot.
+
 ## [0.1.0] - 2026-06-27
 
 ### Added
