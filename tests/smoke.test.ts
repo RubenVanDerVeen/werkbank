@@ -15,3 +15,8 @@ test('every registered module has required fields', () => {
     assert.equal(typeof m.render, 'function');
   }
 });
+
+test('multistage module registered under Elektronica1B', () => {
+  const m = modules.find((x) => x.id === 'multistage');
+  assert.ok(m && m.course === 'Elektronica1B', 'multistage missing');
+});

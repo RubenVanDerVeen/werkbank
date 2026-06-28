@@ -40,6 +40,7 @@ and numbers update live.
   stages.
 - **FET Amplifiers** — small-signal analysis for CS / CD / CG stages, MOSFET
   and JFET.
+- **Cascaded Amplifier** — inter-stage loading, overall gain, and bandwidth shrink.
 
 ## Develop
 

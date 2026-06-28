@@ -11,6 +11,7 @@ All notable changes to Werkbank are documented here. Format follows [Keep a Chan
 - Diode Wave-Shaping module: five canonical topologies with input/output waveform overlay and ripple readout.
 - FET Amplifiers module: CS/CD/CG small-signal analysis for MOSFET and JFET with Av/IDQ sweep plot.
 - Op-Amp Circuits module: inverting, non-inverting, follower, summing, difference with saturation-aware transfer plot.
+- Cascaded Amplifier module: inter-stage loading, overall gain, and bandwidth shrink for 2–3 stages.
 - Internal: complex-number math helper (`src/math/complex.ts`) and log-frequency Bode plot helper (`src/ui/acplot.ts`) for the Elektronica1B AC modules.
 
 ## [0.1.0] - 2026-06-27
