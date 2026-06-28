@@ -27,3 +27,21 @@ test('CE unbypassed RE=500Ω: Av ≈ -6.29, Zin_device ≈ 53k', () => {
   assert.ok(Math.abs(r.Av - (-6.289)) < 0.1, `Av=${r.Av}`);
   assert.ok(Math.abs(r.Zin_device_kOhm - 53) < 1, `Zin=${r.Zin_device_kOhm}`);
 });
+
+test('CC: Av ≈ 0.963, Zout ≈ 0.0335k', () => {
+  const r = analyze('CC', {
+    beta: 100, ICmA: 1, VTmV: 25,
+    RC_kOhm: 0, RE_kOhm: 1, RL_kOhm: 10, Rs_kOhm: 1, RB_kOhm: Infinity, REbypassed: false,
+  });
+  assert.ok(Math.abs(r.Av - 0.963) < 0.005, `Av=${r.Av}`);
+  assert.ok(Math.abs(r.Zout_kOhm - 0.0335) < 0.005, `Zout=${r.Zout_kOhm}`);
+});
+
+test('CB: Av ≈ +133.3, Zin_device ≈ 0.0236k', () => {
+  const r = analyze('CB', {
+    beta: 100, ICmA: 1, VTmV: 25,
+    RC_kOhm: 5, RE_kOhm: 0.5, RL_kOhm: 10, Rs_kOhm: 0, RB_kOhm: Infinity, REbypassed: false,
+  });
+  assert.ok(Math.abs(r.Av - 133.333) < 1, `Av=${r.Av}`);
+  assert.ok(Math.abs(r.Zin_device_kOhm - 0.0236) < 0.005, `Zin=${r.Zin_device_kOhm}`);
+});
