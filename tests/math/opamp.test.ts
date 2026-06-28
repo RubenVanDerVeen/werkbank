@@ -26,3 +26,17 @@ test('follower: Av=1, Vout=Vin', () => {
   assert.equal(r.Av, 1);
   assert.ok(Math.abs(r.Vout - 5) < 1e-9, `Vout=${r.Vout}`);
 });
+
+test('summing: Vout = -Rf·(V1/R1 + V2/R2), saturates at -Vcc', () => {
+  const r = analyze('summing', { R1: 10, R2: 10, Rf: 100, Vcc: 15, V1: 1, V2: 0.5 });
+  // Ideal = -100·(0.1 + 0.05) = -15 → saturated
+  assert.equal(r.region, 'saturated (-)');
+  assert.ok(Math.abs(r.Vout - (-15)) < 1e-9, `Vout=${r.Vout}`);
+});
+
+test('difference: Vout = (R2/R1)·(V2-V1) = +1.0', () => {
+  const r = analyze('difference', { R1: 10, R2: 100, Vcc: 15, V1: 0.1, V2: 0.2 });
+  assert.equal(r.Av, 10);
+  assert.ok(Math.abs(r.Vout - 1.0) < 1e-9, `Vout=${r.Vout}`);
+  assert.equal(r.region, 'linear');
+});
