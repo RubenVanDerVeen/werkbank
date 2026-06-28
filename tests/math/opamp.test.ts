@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { analyze, type Config } from '../../src/math/opamp.ts';
+import { analyze, transfer, type Config } from '../../src/math/opamp.ts';
 
 test('inverting: Av=-10, Vout=-1 at Vin=0.1, linear', () => {
   const r = analyze('inverting', { R1: 10, Rf: 100, Vcc: 15, Vin: 0.1 });
@@ -39,4 +39,15 @@ test('difference: Vout = (R2/R1)·(V2-V1) = +1.0', () => {
   assert.equal(r.Av, 10);
   assert.ok(Math.abs(r.Vout - 1.0) < 1e-9, `Vout=${r.Vout}`);
   assert.equal(r.region, 'linear');
+});
+
+test('transfer: inverting sweep shows linear region and two saturation plateaus', () => {
+  const xs = [-3, -1.5, 0, 1.5, 3];
+  const ys = transfer('inverting', { R1: 10, Rf: 100, Vcc: 15 }, xs);
+  // Av = -10: Vin=-3 → +30 → +15 (sat +); Vin=-1.5 → +15 (rail); Vin=0 → 0; Vin=1.5 → -15 (rail); Vin=3 → -30 → -15 (sat -)
+  assert.ok(Math.abs(ys[0]! - 15) < 1e-9);    // Vin=-3 → saturated (+)
+  assert.ok(Math.abs(ys[1]! - 15) < 1e-9);    // Vin=-1.5 → +15 (rail)
+  assert.ok(Math.abs(ys[2]! - 0) < 1e-9);     // Vin=0 → 0
+  assert.ok(Math.abs(ys[3]! - (-15)) < 1e-9); // Vin=1.5 → -15 (rail)
+  assert.ok(Math.abs(ys[4]! - (-15)) < 1e-9); // Vin=3 → saturated (-)
 });
