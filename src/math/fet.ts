@@ -62,14 +62,12 @@ function solveCD(gm: number, RS: number, RL: number, Rs: number, RG: number): Fe
 }
 
 function solveCG(gm: number, RD: number, RL: number, RS: number, Rs: number, RG: number): FetResult {
-  void RG;
+  void RS; void Rs; void RG;
   const RLC = parallel(RD, RL);
-  // Av = +gm·RLC / (1 + gm·RS)
-  const Av = (gm * RLC) / (1 + gm * RS);
-  // Zin at source ≈ 1/gm (when RS unbypassed and Rs small)
-  const Zin = 1 / (gm + 1/RS); // kΩ
+  // Av = +gm·RLC (input at source, gate at AC gnd)
+  const Av = gm * RLC;
+  const Zin = 1 / gm; // kΩ, looking into source
   const Zout = RD;
-  const Ai = Av * Zin / RL;
-  void Rs;
+  const Ai = (Av * Zin) / RL; // Zin already kΩ
   return { Av, Ai, Zin_MOhm: Zin / 1000, Zout_kOhm: Zout };
 }
