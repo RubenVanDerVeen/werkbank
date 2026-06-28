@@ -40,18 +40,13 @@ export function analyze(device: Device, config: FetConfig, p: FetParams): FetRes
 }
 
 function solveCS(gm: number, RD: number, RL: number, RS: number, Rs: number, RG: number): FetResult {
+  void Rs;
   const RLC = parallel(RD, RL);
-  // vs = Rs·i + vg; vg = vs·RG/(Rs+RG) (gate draws no current). With Rs=0, vg=vs.
-  const vg = 1 * RG / (Rs + RG); // vs=1
-  const vs_eff = vg; // source at gnd for AC in CS
-  const vgs = vg - 0; // source is at AC gnd (RS bypassed) or RS to gnd
-  // For unbypassed RS: vgs = vg - vs·gm·vgs·RS/(1) ... use feedback form.
   // Av (unloaded source) = -gm·RLC / (1 + gm·RS)
   const Av = -gm * RLC / (1 + gm * RS);
   const Zin = RG; // MΩ
   const Zout = RD; // ro omitted
-  const Ai = Av * Zin / RL; // Zin in MΩ → keep Ai unitless by treating MΩ/kΩ = 1000 factor ignored (pedagogical)
-  void vs_eff; void vgs;
+  const Ai = (Av * Zin * 1000) / RL; // Zin MΩ→kΩ
   return { Av, Ai, Zin_MOhm: Zin, Zout_kOhm: Zout };
 }
 
@@ -62,7 +57,7 @@ function solveCD(gm: number, RS: number, RL: number, Rs: number, RG: number): Fe
   const Zin = RG;
   const Zout = parallel(1 / gm, RS); // ponytail: (1/gm)‖RS, neglecting Rs/(β+1) form
   void Rs;
-  const Ai = Av * Zin / RL;
+  const Ai = (Av * Zin * 1000) / RL; // Zin MΩ→kΩ
   return { Av, Ai, Zin_MOhm: Zin, Zout_kOhm: Zout };
 }
 
