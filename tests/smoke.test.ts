@@ -20,3 +20,13 @@ test('multistage module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'multistage');
   assert.ok(m && m.course === 'Elektronica1B', 'multistage missing');
 });
+
+test('diff-amp module registered under Elektronica1B', () => {
+  const m = modules.find((x) => x.id === 'diff-amp');
+  assert.ok(m && m.course === 'Elektronica1B', 'diff-amp missing');
+});
+
+test('feedback module registered under Elektronica1B', () => {
+  const m = modules.find((x) => x.id === 'feedback');
+  assert.ok(m && m.course === 'Elektronica1B', 'feedback missing');
+});

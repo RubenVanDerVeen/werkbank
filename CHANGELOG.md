@@ -13,6 +13,8 @@ All notable changes to Werkbank are documented here. Format follows [Keep a Chan
 - Op-Amp Circuits module: inverting, non-inverting, follower, summing, difference with saturation-aware transfer plot.
 - Cascaded Amplifier module: inter-stage loading, overall gain, and bandwidth shrink for 2–3 stages.
 - Internal: complex-number math helper (`src/math/complex.ts`) and log-frequency Bode plot helper (`src/ui/acplot.ts`) for the Elektronica1B AC modules.
+- Negative Feedback module: four topologies with loop gain, closed-loop gain, and Zin/Zout modification.
+- Differential Amplifier module: BJT pair with current-mirror tail, Ad/Acm/CMRR/Rid and a CMRR-vs-REE sweep.
 
 ## [0.1.0] - 2026-06-27
 

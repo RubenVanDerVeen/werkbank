@@ -41,6 +41,8 @@ and numbers update live.
 - **FET Amplifiers** — small-signal analysis for CS / CD / CG stages, MOSFET
   and JFET.
 - **Cascaded Amplifier** — inter-stage loading, overall gain, and bandwidth shrink.
+- **Differential Amplifier** — BJT diff pair with current-mirror tail: Ad, Acm, CMRR.
+- **Negative Feedback** — four topologies: loop gain, closed-loop gain, Zin/Zout impact.
 
 ## Develop
 
