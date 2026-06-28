@@ -15,5 +15,6 @@ import { module as freqResponse } from './modules/freq-response/module.ts';
 import { module as activeFilter } from './modules/active-filter/module.ts';
 import { module as powerAmp } from './modules/power-amp/module.ts';
 import { module as oscillator } from './modules/oscillator/module.ts';
+import { module as comparator } from './modules/comparator/module.ts';
 
-export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp, multistage, diffAmp, feedback, freqResponse, activeFilter, powerAmp, oscillator];
+export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp, multistage, diffAmp, feedback, freqResponse, activeFilter, powerAmp, oscillator, comparator];
