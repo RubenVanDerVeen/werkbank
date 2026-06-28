@@ -11,16 +11,17 @@ const TWO_PI = 2 * Math.PI;
 
 export function analyze(p: FreqRespParams): FreqRespResult {
   const RLp = par(p.RC_kOhm, p.RL_kOhm);
-  const Amid = -p.gm_mS * RLp;
-  const Cin = p.Cpi_pF + p.Cmu_pF * (1 + Math.abs(Amid));
-  const Rth = par(p.Rsig_kOhm, p.Rin_kOhm);
-  const fH = 1e9 / (TWO_PI * Rth * Cin);
-  const fL1 = 1e3 / (TWO_PI * (p.Rsig_kOhm + p.Rin_kOhm) * p.C1_uF);
+  const Amid = -p.gm_mS * RLp; // mS·kΩ = unitless
+  const Cin = p.Cpi_pF + p.Cmu_pF * (1 + Math.abs(Amid)); // pF
+  const Rth = par(p.Rsig_kOhm, p.Rin_kOhm); // kΩ
+  const fH = 1e9 / (TWO_PI * Rth * Cin); // kΩ·pF → Hz
+  const fL1 = 1e3 / (TWO_PI * (p.Rsig_kOhm + p.Rin_kOhm) * p.C1_uF); // kΩ·µF → Hz
   const fL2 = 1e3 / (TWO_PI * (p.RC_kOhm + p.RL_kOhm) * p.C2_uF);
   const fL = Math.max(fL1, fL2);
   return { Amid, AmidDb: 20 * Math.log10(Math.abs(Amid)), fL_Hz: fL, fH_Hz: fH, BW_Hz: fH - fL };
 }
 
+// Band-pass model points for the Bode plot.
 export function bodePoints(p: FreqRespParams, n = 120): { omega: number; magDb: number; phaseDeg: number }[] {
   const { Amid, fL_Hz, fH_Hz } = analyze(p);
   const wL = TWO_PI * fL_Hz, wH = TWO_PI * fH_Hz;
@@ -28,6 +29,7 @@ export function bodePoints(p: FreqRespParams, n = 120): { omega: number; magDb: 
   const out: { omega: number; magDb: number; phaseDeg: number }[] = [];
   for (let i = 0; i < n; i++) {
     const w = 10 ** (lo + ((hi - lo) * i) / (n - 1));
+    // H = Amid · (jw/wL)/(1+jw/wL) · 1/(1+jw/wH)
     const xL = w / wL, xH = w / wH;
     const lowMag = xL / Math.hypot(1, xL);
     const highMag = 1 / Math.hypot(1, xH);
