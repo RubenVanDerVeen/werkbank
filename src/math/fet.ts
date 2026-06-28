@@ -13,7 +13,7 @@ export function gmJFET(IDSS_mA: number, Vp_V: number, IDQ_mA: number): number {
 
 export interface FetParams {
   IDQ_mA: number;
-  Kn_mAV2?: number; Vt_V?: number; // MOSFET
+  Kn_mAV2?: number; // MOSFET
   IDSS_mA?: number; Vp_V?: number; // JFET
   RD_kOhm: number; RS_kOhm: number; RL_kOhm: number;
   Rs_kOhm: number; RG_MOhm: number; RSbypassed: boolean;
