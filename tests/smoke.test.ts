@@ -30,3 +30,8 @@ test('feedback module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'feedback');
   assert.ok(m && m.course === 'Elektronica1B', 'feedback missing');
 });
+
+test('freq-response module registered under Elektronica1B', () => {
+  const m = modules.find((x) => x.id === 'freq-response');
+  assert.ok(m && m.course === 'Elektronica1B', 'freq-response missing');
+});

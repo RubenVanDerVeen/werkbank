@@ -44,6 +44,10 @@ and numbers update live.
 - **Differential Amplifier** — BJT diff pair with current-mirror tail: Ad, Acm, CMRR.
 - **Negative Feedback** — four topologies: loop gain, closed-loop gain, Zin/Zout impact.
 
+**Elektronica1B — advanced analog electronics**
+
+- **Amplifier Frequency Response** — single-stage fL/fH/midband gain with a Bode plot.
+
 ## Develop
 
 ```sh
