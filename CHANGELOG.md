@@ -18,6 +18,7 @@ All notable changes to Werkbank are documented here. Format follows [Keep a Chan
 - Amplifier Frequency Response module: single-stage CE/CS fL, fH (Miller), midband gain, and Bode plot.
 - Power Amplifiers module: Class A/B/AB output power, efficiency, and crossover transfer curve.
 - Sinusoidal Oscillators module: Wien, phase-shift, Colpitts, and Hartley f0 with Barkhausen gain condition.
+- Active Filters module: Sallen-Key LP/HP and MFB band-pass with f0, Q, and magnitude/phase Bode plot.
 
 ## [0.1.0] - 2026-06-27
 

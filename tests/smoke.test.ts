@@ -45,3 +45,8 @@ test('oscillator module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'oscillator');
   assert.ok(m && m.course === 'Elektronica1B', 'oscillator missing');
 });
+
+test('active-filter module registered under Elektronica1B', () => {
+  const m = modules.find((x) => x.id === 'active-filter');
+  assert.ok(m && m.course === 'Elektronica1B', 'active-filter missing');
+});
