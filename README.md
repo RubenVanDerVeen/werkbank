@@ -42,11 +42,11 @@ and numbers update live.
   and JFET.
 - **Cascaded Amplifier** — inter-stage loading, overall gain, and bandwidth shrink.
 - **Differential Amplifier** — BJT diff pair with current-mirror tail: Ad, Acm, CMRR.
-- **Negative Feedback** — four topologies: loop gain, closed-loop gain, Zin/Zout impact.
 
 **Elektronica1B — advanced analog electronics**
 
 - **Amplifier Frequency Response** — single-stage fL/fH/midband gain with a Bode plot.
+- **Negative Feedback** — four topologies: loop gain, closed-loop gain, Zin/Zout impact.
 
 ## Develop
 
