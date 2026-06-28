@@ -43,6 +43,7 @@ function render(host: HTMLElement) {
     if (params.RC === 0) { readouts.textContent = 'error: RC must be > 0'; return; }
     if (net === 'fixed' && params.RB === 0) { readouts.textContent = 'error: RB must be > 0'; return; }
     if (net === 'divider' && (params.R1 + params.R2) === 0) { readouts.textContent = 'error: R1+R2 must be > 0'; return; }
+    if (net === 'divider' && params.RE === 0) { readouts.textContent = 'error: RE must be > 0 for divider'; return; }
 
     const r = bias(net, params);
     const regionColor = r.region === 'active' ? '#3b6b4f' : r.region === 'saturation' ? '#6b3b4f' : '#888';
