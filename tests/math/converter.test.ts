@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { designBuck, designBoost, type SmpsInputs } from '../../src/math/converter.ts';
+import { designBuck, designBoost, designBuckBoost, designFlyback, designForward, type SmpsInputs } from '../../src/math/converter.ts';
 
 const base: SmpsInputs = { Vin: 24, Vout: 12, Iout: 2, fsw: 100e3, L: 47e-6, C: 22e-6, rdsOn: 0.05, vf: 0.7 };
 
@@ -41,4 +41,21 @@ test('efficiency accounts for conduction loss', () => {
 test('throws on Iout=0 (avoids NaN efficiency)', () => {
   assert.throws(() => designBuck({ ...base, Iout: 0 }), /invalid input/);
   assert.throws(() => designBoost({ ...base, Vin: 12, Vout: 24, Iout: 0 }), /invalid input/);
+});
+
+test('buckboost: D = |Vout|/(|Vout|+Vin) when Vout = -Vout_target', () => {
+  const d = designBuckBoost({ ...base, Vin: 12, Vout: 12 });
+  assert.ok(Math.abs(d.D - 12 / (12 + 12)) < 1e-9, `D=${d.D}`);
+});
+
+test('flyback: D = Vout / (Vin * n) where n=Ns/Np', () => {
+  const d = designFlyback({ ...base, Vin: 24, Vout: 12, turnsRatio: 0.5 });
+  assert.ok(Math.abs(d.D - 12 / (24 * 0.5)) < 1e-9, `D=${d.D}`);
+});
+
+test('forward: D = Vout*n / Vin (n=Ns/Np) and clamps to 0.45', () => {
+  const d = designForward({ ...base, Vin: 24, Vout: 12, turnsRatio: 1 });
+  assert.ok(Math.abs(d.D - 0.5) < 1e-9);
+  const d2 = designForward({ ...base, Vin: 24, Vout: 24, turnsRatio: 1 });
+  assert.ok(d2.D === 0.45, `clamp D=${d2.D}`);
 });
