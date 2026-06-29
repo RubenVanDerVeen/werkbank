@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { designBuck, designBoost, designBuckBoost, designFlyback, designForward, type SmpsInputs } from '../../src/math/converter.ts';
+import { designBuck, designBoost, designBuckBoost, designFlyback, designForward, waveform, type SmpsInputs } from '../../src/math/converter.ts';
 
 const base: SmpsInputs = { Vin: 24, Vout: 12, Iout: 2, fsw: 100e3, L: 47e-6, C: 22e-6, rdsOn: 0.05, vf: 0.7 };
 
@@ -58,4 +58,20 @@ test('forward: D = Vout*n / Vin (n=Ns/Np) and clamps to 0.45', () => {
   assert.ok(Math.abs(d.D - 0.5) < 1e-9);
   const d2 = designForward({ ...base, Vin: 24, Vout: 24, turnsRatio: 1 });
   assert.ok(d2.D === 0.45, `clamp D=${d2.D}`);
+});
+
+test('waveform: buck returns N samples covering [0, T]', () => {
+  const w = waveform('buck', { ...base }, 64);
+  assert.equal(w.length, 64);
+  assert.equal(w[0]!.t, 0);
+  assert.ok(Math.abs(w[63]!.t - 1 / 100e3) < 1e-12);
+});
+
+test('waveform: buck Vswitch is Vin during on (0..DT) and 0 during off', () => {
+  const w = waveform('buck', { ...base }, 100);
+  const D = 0.5, T = 1 / 100e3;
+  for (const p of w) {
+    if (p.t < D * T) assert.ok(Math.abs(p.vSwitch - base.Vin) < 1e-6, `vSwitch at on=${p.vSwitch}`);
+    else assert.ok(Math.abs(p.vSwitch) < 1e-6, `vSwitch at off=${p.vSwitch}`);
+  }
 });

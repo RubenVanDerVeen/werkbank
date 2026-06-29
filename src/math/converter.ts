@@ -112,3 +112,28 @@ export function designForward(inp: IsolatedInputs): ConverterDesign {
   const eta = 1 - conductionLosses({ iSwitchRms, iDiodeAvg, rdsOn: inp.rdsOn, vf: inp.vf }) / (Vout * inp.Iout);
   return { D, deltaIL, deltaVout, iLpeak, iLrms, iSwitchPeak, iSwitchRms, iDiodeAvg, efficiency: Math.max(0, Math.min(1, eta)) };
 }
+
+export type Topology = 'buck' | 'boost' | 'buckboost' | 'flyback' | 'forward';
+
+export function waveform(top: Topology, inp: SmpsInputs, n = 128): { t: number; vSwitch: number; iL: number }[] {
+  const T = 1 / inp.fsw;
+  const d = top === 'buck' ? designBuck(inp) : top === 'boost' ? designBoost(inp)
+           : top === 'buckboost' ? designBuckBoost(inp) : top === 'flyback' ? designFlyback(inp as IsolatedInputs)
+           : designForward(inp as IsolatedInputs);
+  const IL = (top === 'flyback') ? inp.Iout / inp.turnsRatio : (top === 'boost' || top === 'buckboost') ? inp.Iout / (1 - d.D) : inp.Iout;
+  const { D } = d;
+  const out: { t: number; vSwitch: number; iL: number }[] = [];
+  for (let k = 0; k < n; k++) {
+    const t = (k / (n - 1)) * T;
+    const on = t < D * T;
+    const fracOn = on ? t / (D * T) : (t - D * T) / ((1 - D) * T);
+    let vSwitch: number;
+    if (top === 'buck') vSwitch = on ? inp.Vin : 0;
+    else if (top === 'boost') vSwitch = on ? 0 : inp.Vout + inp.vf;
+    else if (top === 'buckboost') vSwitch = on ? inp.Vin : 0;
+    else vSwitch = on ? inp.Vin : 0;
+    const iL = on ? IL - d.deltaIL / 2 + d.deltaIL * fracOn : IL + d.deltaIL / 2 - d.deltaIL * fracOn;
+    out.push({ t, vSwitch, iL });
+  }
+  return out;
+}
