@@ -5,9 +5,9 @@ coursework — calculators and visualizers you can poke at until the theory
 clicks.
 
 Built by one student, for the courses that needed it. Currently covers
-**Regeltechniek** (control systems), **Fourier** analysis, and
-**Elektronica1A** (analog electronics). New modules land as new courses come
-up.
+**Regeltechniek** (control systems), **Fourier** analysis,
+**Elektronica1A** (analog electronics), and **Vermelonselektronica**
+(power electronics / SMPS). New modules land as new courses come up.
 
 ## What's inside
 
@@ -51,6 +51,14 @@ and numbers update live.
 - **Sinusoidal Oscillators** — Wien, phase-shift, Colpitts, Hartley: f0 and gain condition.
 - **Active Filters** — Sallen-Key / MFB 2nd-order LP/HP/BP with f0, Q, and Bode plot.
 - **Comparator & Schmitt Trigger** — thresholds, hysteresis, and the transfer loop.
+
+**Vermogenselektronica — power electronics (SMPS)**
+
+- **Buck Converter** — step-down SMPS: duty cycle, inductor current ripple, switch/diode currents, output voltage ripple, and efficiency vs. conduction loss.
+- **Boost Converter** — step-up SMPS with the same readouts; output voltage must exceed input.
+- **Buck-Boost (inverting)** — inverting SMPS with output polarity note; same readouts minus the ripple.
+- **Flyback Converter** — isolated SMPS with a turns-ratio slider: Vout = Vin·n·D, reflected primary current, duty/ripple/efficiency.
+- **Forward Converter** — isolated SMPS (non-flying) with the demag-winding D-clamp at 0.45: duty, ripple, efficiency.
 
 ## Develop
 
