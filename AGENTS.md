@@ -1,6 +1,6 @@
 # Werkbank
 
-Static site hosting EE study tools (calculators + visualizers). One author. v1: Regeltechniek + Fourier.
+Static site hosting EE study tools (calculators + visualizers). One author. v1: Regeltechniek + Fourier + Vermelonselektronica (SMPS).
 
 ## Stack
 
@@ -31,5 +31,5 @@ export const module: Module = { id, title, course, description, icon, render };
 ## Git
 
 - No commit/push without explicit user instruction.
-- All work on `main`. No branches.
+- Feature work on a branch: `git checkout -b feat/<short-slug>`. Merge back to `main` only after the user confirms.
 - Commit messages: Conventional Commits 1.0.0.
