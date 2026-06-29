@@ -120,7 +120,7 @@ export function waveform(top: Topology, inp: SmpsInputs, n = 128): { t: number; 
   const d = top === 'buck' ? designBuck(inp) : top === 'boost' ? designBoost(inp)
            : top === 'buckboost' ? designBuckBoost(inp) : top === 'flyback' ? designFlyback(inp as IsolatedInputs)
            : designForward(inp as IsolatedInputs);
-  const IL = (top === 'flyback') ? inp.Iout / inp.turnsRatio : (top === 'boost' || top === 'buckboost') ? inp.Iout / (1 - d.D) : inp.Iout;
+  const IL = (top === 'flyback') ? (inp.Vout * inp.Iout) / (inp.Vin * d.D) : (top === 'boost' || top === 'buckboost') ? inp.Iout / (1 - d.D) : inp.Iout;
   const { D } = d;
   const out: { t: number; vSwitch: number; iL: number }[] = [];
   for (let k = 0; k < n; k++) {
