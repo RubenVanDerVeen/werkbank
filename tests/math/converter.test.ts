@@ -49,8 +49,8 @@ test('buckboost: D = |Vout|/(|Vout|+Vin) when Vout = -Vout_target', () => {
 });
 
 test('flyback: D = Vout / (Vin * n) where n=Ns/Np', () => {
-  const d = designFlyback({ ...base, Vin: 24, Vout: 12, turnsRatio: 0.5 });
-  assert.ok(Math.abs(d.D - 12 / (24 * 0.5)) < 1e-9, `D=${d.D}`);
+  const d = designFlyback({ ...base, Vin: 30, Vout: 12, turnsRatio: 0.5 });
+  assert.ok(Math.abs(d.D - 12 / (30 * 0.5)) < 1e-9, `D=${d.D}`);
 });
 
 test('forward: D = Vout*n / Vin (n=Ns/Np) and clamps to 0.45', () => {

@@ -83,8 +83,8 @@ export function designFlyback(inp: IsolatedInputs): ConverterDesign {
   if (!(Vin > 0 && Vout > 0 && inp.Iout > 0 && inp.fsw > 0 && inp.L > 0 && inp.C > 0 && inp.turnsRatio > 0 && inp.rdsOn >= 0 && inp.vf >= 0)) throw new Error('invalid input');
   const n = inp.turnsRatio;
   const D = Vout / (Vin * n);
-  if (!(D > 0 && D <= 1)) throw new Error('D out of range; check turnsRatio');
-  const ILp = (inp.Iout * (1 + D)) / (n * (1 - D));
+  if (!(D > 0 && D < 1)) throw new Error('D out of range; check turnsRatio');
+  const ILp = (inp.Vout * inp.Iout) / (Vin * D);
   const deltaIL = Vin * D / (inp.L * inp.fsw);
   const iSwitchPeak = ILp + deltaIL / 2;
   const iLrms = Math.sqrt(ILp * ILp + (deltaIL * deltaIL) / 12);
@@ -99,7 +99,7 @@ export function designForward(inp: IsolatedInputs): ConverterDesign {
   const { Vin, Vout } = inp;
   if (!(Vin > 0 && Vout > 0 && inp.Iout > 0 && inp.fsw > 0 && inp.L > 0 && inp.C > 0 && inp.turnsRatio > 0 && inp.rdsOn >= 0 && inp.vf >= 0)) throw new Error('invalid input');
   const n = inp.turnsRatio;
-  const Dnatural = (Vout * n) / Vin;
+  const Dnatural = Vout / (n * Vin);
   const D = Dnatural > 0.5 ? 0.45 : Dnatural;
   const IL = inp.Iout;
   const deltaIL = (Vin - Vout / n) * D / (inp.L * inp.fsw);
