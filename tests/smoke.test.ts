@@ -55,3 +55,8 @@ test('comparator module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'comparator');
   assert.ok(m && m.course === 'Elektronica1B', 'comparator missing');
 });
+
+test('maxwell-induction module registered under Elektromagnetische Velden', () => {
+  const m = modules.find((x) => x.id === 'maxwell-induction');
+  assert.ok(m && m.course === 'Elektromagnetische Velden', 'maxwell-induction missing');
+});

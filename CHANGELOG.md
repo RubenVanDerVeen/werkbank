@@ -21,6 +21,7 @@ All notable changes to Werkbank are documented here. Format follows [Keep a Chan
 - Active Filters module: Sallen-Key LP/HP and MFB band-pass with f0, Q, and magnitude/phase Bode plot.
 - Comparator & Schmitt Trigger module: inverting/non-inverting thresholds, hysteresis, and transfer-loop plot.
 - Internal: transmission-line math helper (`src/math/tl.ts`), Smith chart SVG helper (`src/ui/smith.ts`), 2D field-plot SVG helper (`src/ui/fieldplot.ts`), and polar radiation-pattern SVG helper (`src/ui/polarplot.ts`) for the Elektromagnetisme modules.
+- Maxwell & Induction module: Faraday's law, motional emf, self/mutual inductance, displacement current with Φ(t)/emf(t) plot.
 
 ## [0.1.0] - 2026-06-27
 
