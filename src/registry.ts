@@ -22,5 +22,6 @@ import { module as smpsBuckBoost } from './modules/smps-buckboost/module.ts';
 import { module as smpsFlyback } from './modules/smps-flyback/module.ts';
 import { module as smpsForward } from './modules/smps-forward/module.ts';
 import { module as planeWaveIncidence } from './modules/plane-wave-incidence/module.ts';
+import { module as impedanceMatching } from './modules/impedance-matching/module.ts';
 
-export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp, multistage, diffAmp, feedback, freqResponse, activeFilter, powerAmp, oscillator, comparator, smpsBuck, smpsBoost, smpsBuckBoost, smpsFlyback, smpsForward, planeWaveIncidence];
+export const modules: Module[] = [transferFn, pidTuner, routhHurwitz, fourierSeries, bjtAmp, bjtDc, diodeShaping, fetAmp, opamp, multistage, diffAmp, feedback, freqResponse, activeFilter, powerAmp, oscillator, comparator, smpsBuck, smpsBoost, smpsBuckBoost, smpsFlyback, smpsForward, planeWaveIncidence, impedanceMatching];
