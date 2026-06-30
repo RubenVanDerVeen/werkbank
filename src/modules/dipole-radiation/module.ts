@@ -31,6 +31,8 @@ function render(host: HTMLElement) {
     for (let i = 0; i < N; i++) {
       const th = (2 * Math.PI * i) / (N - 1);
       const r = patternFor(t, th);
+      // ponytail: caller converts to dB so peak = 0 dB; polarplot's dB branch
+      // (src/ui/polarplot.ts) floors at -40 dB and assumes caller-pre-converted samples.
       out.push({ theta: th, r: dbMode ? 20 * Math.log10(Math.max(r, 1e-9)) : r });
     }
     return out;
@@ -47,7 +49,7 @@ function render(host: HTMLElement) {
       <div><b>Prad:</b> ${sig3(radiatedPower(I0.value(), Rr))} W</div>
     `;
     const series = [{ label: t, samples: samples(t) }];
-    polarPlot(plotHost, series, { title: 'E-plane pattern', db: scale.value() === 'dB' });
+    polarPlot(plotHost, series, { db: scale.value() === 'dB' });
   };
 
   for (const w of [type, lOverLambda, I0, scale]) {
