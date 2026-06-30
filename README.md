@@ -64,6 +64,10 @@ and numbers update live.
 
 - **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
 
+**Antennes — antennas**
+
+- **Dipole Radiation** — Hertzian and half-wave patterns: Rr, directivity, HPBW, Prad on a polar plot.
+
 ## Develop
 
 ```sh
