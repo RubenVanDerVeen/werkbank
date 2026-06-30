@@ -63,6 +63,7 @@ and numbers update live.
 **Elektromagnetische Velden — electromagnetics**
 
 - **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
+- **Interactive Smith Chart** — Z↔Γ, admittance, SWR, constant-r/x circles, click-to-set.
 
 ## Develop
 

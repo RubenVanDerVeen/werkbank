@@ -60,3 +60,8 @@ test('plane-wave-incidence module registered under Elektromagnetische Velden', (
   const m = modules.find((x) => x.id === 'plane-wave-incidence');
   assert.ok(m && m.course === 'Elektromagnetische Velden', 'plane-wave-incidence missing');
 });
+
+test('smith-chart module registered under Hoogfrequenttechniek', () => {
+  const m = modules.find((x) => x.id === 'smith-chart');
+  assert.ok(m && m.course === 'Hoogfrequenttechniek', 'smith-chart missing');
+});
