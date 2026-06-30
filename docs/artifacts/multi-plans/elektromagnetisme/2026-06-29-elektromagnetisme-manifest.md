@@ -22,21 +22,21 @@ merges `feat/elektromagnetisme` to `main`.
 
 | ID | Course | Name | Branch | Plan file | Spec file | Depends on | Status |
 |----|--------|------|--------|-----------|-----------|------------|--------|
-| F  | (shared) | Smith chart + field plot + polar plot + TL math | `feat/elektromagnetisme/foundation` | `plans/elektromagnetisme/2026-06-29-foundation.md` | `specs/elektromagnetisme/2026-06-29-foundation-design.md` | — | ready |
-| SP-1  | Elektromagnetische Velden | Electrostatics | `feat/elektromagnetisme/electrostatics` | `plans/elektromagnetisme/2026-06-29-electrostatics.md` | `specs/elektromagnetisme/2026-06-29-electrostatics-design.md` | F merged | ready |
-| SP-2  | Elektromagnetische Velden | Magnetostatics | `feat/elektromagnetisme/magnetostatics` | `plans/elektromagnetisme/2026-06-29-magnetostatics.md` | `specs/elektromagnetisme/2026-06-29-magnetostatics-design.md` | F merged | ready |
-| SP-3  | Elektromagnetische Velden | Maxwell & Induction | `feat/elektromagnetisme/maxwell-induction` | `plans/elektromagnetisme/2026-06-29-maxwell-induction.md` | `specs/elektromagnetisme/2026-06-29-maxwell-induction-design.md` | — | ready |
-| SP-4  | Elektromagnetische Velden | EM Waves | `feat/elektromagnetisme/em-waves` | `plans/elektromagnetisme/2026-06-29-em-waves.md` | `specs/elektromagnetisme/2026-06-29-em-waves-design.md` | F merged | ready |
-| SP-5  | Elektromagnetische Velden | Plane-Wave Incidence | `feat/elektromagnetisme/plane-wave-incidence` | `plans/elektromagnetisme/2026-06-29-plane-wave-incidence.md` | `specs/elektromagnetisme/2026-06-29-plane-wave-incidence-design.md` | — | ready |
-| SP-6  | Elektromagnetische Velden | Rectangular Waveguides | `feat/elektromagnetisme/waveguides` | `plans/elektromagnetisme/2026-06-29-waveguides.md` | `specs/elektromagnetisme/2026-06-29-waveguides-design.md` | F merged | ready |
-| SP-7  | Hoogfrequenttechniek | TL Fundamentals | `feat/elektromagnetisme/tl-fundamentals` | `plans/elektromagnetisme/2026-06-29-tl-fundamentals.md` | `specs/elektromagnetisme/2026-06-29-tl-fundamentals-design.md` | F merged | ready |
-| SP-8  | Hoogfrequenttechniek | TL Input Impedance | `feat/elektromagnetisme/tl-input-impedance` | `plans/elektromagnetisme/2026-06-29-tl-input-impedance.md` | `specs/elektromagnetisme/2026-06-29-tl-input-impedance-design.md` | F merged | ready |
-| SP-9  | Hoogfrequenttechniek | Interactive Smith Chart | `feat/elektromagnetisme/smith-chart` | `plans/elektromagnetisme/2026-06-29-smith-chart.md` | `specs/elektromagnetisme/2026-06-29-smith-chart-design.md` | F merged | ready |
-| SP-10 | Hoogfrequenttechniek | Impedance Matching | `feat/elektromagnetisme/impedance-matching` | `plans/elektromagnetisme/2026-06-29-impedance-matching.md` | `specs/elektromagnetisme/2026-06-29-impedance-matching-design.md` | F merged | ready |
-| SP-11 | Hoogfrequenttechniek | S-Parameters & Two-Port | `feat/elektromagnetisme/s-parameters` | `plans/elektromagnetisme/2026-06-29-s-parameters.md` | `specs/elektromagnetisme/2026-06-29-s-parameters-design.md` | F merged | ready |
-| SP-12 | Antennes | Dipole Radiation | `feat/elektromagnetisme/dipole-radiation` | `plans/elektromagnetisme/2026-06-29-dipole-radiation.md` | `specs/elektromagnetisme/2026-06-29-dipole-radiation-design.md` | F merged | ready |
-| SP-13 | Antennes | Linear Antenna Arrays | `feat/elektromagnetisme/antenna-arrays` | `plans/elektromagnetisme/2026-06-29-antenna-arrays.md` | `specs/elektromagnetisme/2026-06-29-antenna-arrays-design.md` | F merged | ready |
-| SP-14 | Antennes | Link Budget & Radar | `feat/elektromagnetisme/link-budget` | `plans/elektromagnetisme/2026-06-29-link-budget.md` | `specs/elektromagnetisme/2026-06-29-link-budget-design.md` | — | ready |
+| F  | (shared) | Smith chart + field plot + polar plot + TL math | `feat-em-foundation` | `plans/elektromagnetisme/2026-06-29-foundation.md` | `specs/elektromagnetisme/2026-06-29-foundation-design.md` | — | ready |
+| SP-1  | Elektromagnetische Velden | Electrostatics | `feat-em-electrostatics` | `plans/elektromagnetisme/2026-06-29-electrostatics.md` | `specs/elektromagnetisme/2026-06-29-electrostatics-design.md` | F merged | ready |
+| SP-2  | Elektromagnetische Velden | Magnetostatics | `feat-em-magnetostatics` | `plans/elektromagnetisme/2026-06-29-magnetostatics.md` | `specs/elektromagnetisme/2026-06-29-magnetostatics-design.md` | F merged | ready |
+| SP-3  | Elektromagnetische Velden | Maxwell & Induction | `feat-em-maxwell-induction` | `plans/elektromagnetisme/2026-06-29-maxwell-induction.md` | `specs/elektromagnetisme/2026-06-29-maxwell-induction-design.md` | — | ready |
+| SP-4  | Elektromagnetische Velden | EM Waves | `feat-em-em-waves` | `plans/elektromagnetisme/2026-06-29-em-waves.md` | `specs/elektromagnetisme/2026-06-29-em-waves-design.md` | F merged | ready |
+| SP-5  | Elektromagnetische Velden | Plane-Wave Incidence | `feat-em-plane-wave-incidence` | `plans/elektromagnetisme/2026-06-29-plane-wave-incidence.md` | `specs/elektromagnetisme/2026-06-29-plane-wave-incidence-design.md` | — | ready |
+| SP-6  | Elektromagnetische Velden | Rectangular Waveguides | `feat-em-waveguides` | `plans/elektromagnetisme/2026-06-29-waveguides.md` | `specs/elektromagnetisme/2026-06-29-waveguides-design.md` | F merged | ready |
+| SP-7  | Hoogfrequenttechniek | TL Fundamentals | `feat-em-tl-fundamentals` | `plans/elektromagnetisme/2026-06-29-tl-fundamentals.md` | `specs/elektromagnetisme/2026-06-29-tl-fundamentals-design.md` | F merged | ready |
+| SP-8  | Hoogfrequenttechniek | TL Input Impedance | `feat-em-tl-input-impedance` | `plans/elektromagnetisme/2026-06-29-tl-input-impedance.md` | `specs/elektromagnetisme/2026-06-29-tl-input-impedance-design.md` | F merged | ready |
+| SP-9  | Hoogfrequenttechniek | Interactive Smith Chart | `feat-em-smith-chart` | `plans/elektromagnetisme/2026-06-29-smith-chart.md` | `specs/elektromagnetisme/2026-06-29-smith-chart-design.md` | F merged | ready |
+| SP-10 | Hoogfrequenttechniek | Impedance Matching | `feat-em-impedance-matching` | `plans/elektromagnetisme/2026-06-29-impedance-matching.md` | `specs/elektromagnetisme/2026-06-29-impedance-matching-design.md` | F merged | ready |
+| SP-11 | Hoogfrequenttechniek | S-Parameters & Two-Port | `feat-em-s-parameters` | `plans/elektromagnetisme/2026-06-29-s-parameters.md` | `specs/elektromagnetisme/2026-06-29-s-parameters-design.md` | F merged | ready |
+| SP-12 | Antennes | Dipole Radiation | `feat-em-dipole-radiation` | `plans/elektromagnetisme/2026-06-29-dipole-radiation.md` | `specs/elektromagnetisme/2026-06-29-dipole-radiation-design.md` | F merged | ready |
+| SP-13 | Antennes | Linear Antenna Arrays | `feat-em-antenna-arrays` | `plans/elektromagnetisme/2026-06-29-antenna-arrays.md` | `specs/elektromagnetisme/2026-06-29-antenna-arrays-design.md` | F merged | ready |
+| SP-14 | Antennes | Link Budget & Radar | `feat-em-link-budget` | `plans/elektromagnetisme/2026-06-29-link-budget.md` | `specs/elektromagnetisme/2026-06-29-link-budget-design.md` | — | ready |
 
 Paths are relative to `docs/artifacts/`.
 
@@ -50,17 +50,17 @@ Paths are relative to `docs/artifacts/`.
 ## Execution order
 
 1. **Planner** committed planning artifacts to `feat/elektromagnetisme` (done).
-2. **F (foundation)** — one agent on `feat/elektromagnetisme/foundation` (cut
+2. **F (foundation)** — one agent on `feat-em-foundation` (cut
    from `feat/elektromagnetisme`). Adds `src/ui/smith.ts`, `src/ui/fieldplot.ts`,
    `src/ui/polarplot.ts`, `src/math/tl.ts`. No registry edit. User merges the
    sub-branch back into `feat/elektromagnetisme`.
 3. **After F is merged into `feat/elektromagnetisme`: SP-1 … SP-14 in parallel**
-   — one cheaper agent per plan, each on its own `feat/elektromagnetisme/<slug>`
+   — one cheaper agent per plan, each on its own `feat-em-<slug>`
    branch cut from `feat/elektromagnetisme` (which now contains the foundation).
    - SP-3, SP-5, SP-14 have **no** dependency on F and may be dispatched
      immediately alongside F, in the same batch.
    - The other 11 import foundation helpers — dispatch them only after the user
-     merges `feat/elektromagnetisme/foundation` into `feat/elektromagnetisme`.
+     merges `feat-em-foundation` into `feat/elektromagnetisme`.
    - Each agent merges its sub-branch back into `feat/elektromagnetisme` (user
      reviews and merges).
 4. **After all sub-branches are merged into `feat/elektromagnetisme`** —
@@ -92,10 +92,10 @@ Per AGENTS.md, all feature work runs on a branch and only the user merges to
 ```
 main
  └── feat/elektromagnetisme              ← integration branch (planning artifacts here)
-      ├── feat/elektromagnetisme/foundation       ← cut from feat/elektromagnetisme, merged back
-      ├── feat/elektromagnetisme/electrostatics   ← cut from feat/elektromagnetisme (post-foundation), merged back
-      ├── feat/elektromagnetisme/magnetostatics   ← ...
-      └── ... (14 sub-branches total)
+ └── feat-em-foundation                  ← cut from feat/elektromagnetisme, merged back
+ └── feat-em-electrostatics              ← cut from feat/elektromagnetisme (post-foundation), merged back
+ └── feat-em-magnetostatics              ← ...
+ └── ... (14 sub-branches total — flat-named to avoid git ref conflicts with the integration branch)
 ```
 
 Each dispatched agent:
@@ -130,7 +130,7 @@ remove existing entries. Do not merge to feat/elektromagnetisme or main —
 report back when all tasks are checked off and the user will review and merge.
 ```
 
-Dispatch F first. After the user merges `feat/elektromagnetisme/foundation`
+Dispatch F first. After the user merges `feat-em-foundation`
 into `feat/elektromagnetisme`, dispatch SP-1…SP-14 (one agent each). SP-3, SP-5,
 SP-14 may be dispatched alongside F (no foundation dependency).
 
