@@ -60,6 +60,10 @@ and numbers update live.
 - **Flyback Converter** — isolated SMPS with a turns-ratio slider: Vout = Vin·n·D, reflected primary current, duty/ripple/efficiency.
 - **Forward Converter** — isolated SMPS (non-flying) with the demag-winding D-clamp at 0.45: duty, ripple, efficiency.
 
+**Hoogfrequenttechniek — RF / transmission lines**
+
+- **TL Input Impedance** — input impedance vs line length, SWR, reflection coefficient, λ/4 transformer.
+
 ## Develop
 
 ```sh
