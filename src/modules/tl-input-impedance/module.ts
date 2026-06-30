@@ -31,18 +31,10 @@ function render(host: HTMLElement) {
   const update = () => {
     const zL: Complex = { re: zLre.value(), im: zLim.value() };
     const z0v = z0.value();
-    const l = length.value();
-    const betaL = 2 * Math.PI * l;
+    const betaL = 2 * Math.PI * length.value();
 
-    let zin: Complex;
-    let gamma: Complex;
-    try {
-      zin = zinLossless(zL, betaL, z0v);
-      gamma = zToGamma(zL, z0v);
-    } catch (e) {
-      readouts.textContent = `error: ${(e as Error).message}`;
-      return;
-    }
+    const zin = zinLossless(zL, betaL, z0v);
+    const gamma = zToGamma(zL, z0v);
 
     const mag = cabs(gamma);
     const swrv = mag < 1 ? swr(gamma) : Infinity;
@@ -61,10 +53,11 @@ function render(host: HTMLElement) {
     `;
 
     const sweep = zinSweep(zL, z0v, 0, Math.PI, 120);
-    const xs = sweep.map((p) => p.betaL / (2 * Math.PI));
+    const reSeries = sweep.map((p) => ({ x: p.betaL / (2 * Math.PI), y: p.zin.re }));
+    const imSeries = sweep.map((p) => ({ x: p.betaL / (2 * Math.PI), y: p.zin.im }));
     linePlot(plotHost, [
-      { label: 'Re(Zin)', data: xs.map((x, i) => ({ x, y: sweep[i]!.zin.re })) },
-      { label: 'Im(Zin)', data: xs.map((x, i) => ({ x, y: sweep[i]!.zin.im })) },
+      { label: 'Re(Zin)', data: reSeries },
+      { label: 'Im(Zin)', data: imSeries },
     ], { xLabel: 'l (λ)', yLabel: 'Zin (Ω)' });
 
     smith.update([
