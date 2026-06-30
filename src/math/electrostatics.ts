@@ -39,7 +39,13 @@ export function superposePotential(charges: Charge[], observer: Pt): number {
 
 export type CapType = 'plate' | 'coax' | 'sphere';
 
-export function capacitance(type: CapType, p: { A?: number; d?: number; L?: number; a?: number; b?: number; r?: number }): number {
+export interface CapParams {
+  A?: number; d?: number; // plate: area (m²), separation (m)
+  L?: number; a?: number; b?: number; // coax: length, inner radius, outer radius (m)
+  r?: number; // sphere: radius (m)
+}
+
+export function capacitance(type: CapType, p: CapParams): number {
   switch (type) {
     case 'plate': {
       const d = p.d ?? 0;
@@ -58,7 +64,13 @@ export function capacitance(type: CapType, p: { A?: number; d?: number; L?: numb
 
 export type GaussType = 'sphere' | 'cylinder' | 'plane';
 
-export function gaussField(type: GaussType, p: { Q?: number; lambda?: number; sigma?: number }, r: number): number {
+export interface GaussParams {
+  Q?: number;       // sphere: total charge (C)
+  lambda?: number;  // cylinder: line charge density (C/m)
+  sigma?: number;   // plane: surface charge density (C/m²)
+}
+
+export function gaussField(type: GaussType, p: GaussParams, r: number): number {
   switch (type) {
     case 'sphere': {
       if (r <= 0) throw new Error('r must be > 0');
