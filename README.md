@@ -64,6 +64,10 @@ and numbers update live.
 
 - **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
 
+**Hoogfrequenttechniek — high-frequency techniques**
+
+- **Impedance Matching** — L-networks, λ/4 transformer, and single-stub matching with a Smith-chart match trajectory.
+
 ## Develop
 
 ```sh
