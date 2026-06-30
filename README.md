@@ -7,7 +7,8 @@ clicks.
 Built by one student, for the courses that needed it. Currently covers
 **Regeltechniek** (control systems), **Fourier** analysis,
 **Elektronica1A** (analog electronics), and **Vermelonselektronica**
-(power electronics / SMPS). New modules land as new courses come up.
+(power electronics / SMPS), and **Elektromagnetische Velden**
+(electromagnetics). New modules land as new courses come up.
 
 ## What's inside
 
@@ -59,6 +60,10 @@ and numbers update live.
 - **Buck-Boost (inverting)** — inverting SMPS with output polarity note; same readouts minus the ripple.
 - **Flyback Converter** — isolated SMPS with a turns-ratio slider: Vout = Vin·n·D, reflected primary current, duty/ripple/efficiency.
 - **Forward Converter** — isolated SMPS (non-flying) with the demag-winding D-clamp at 0.45: duty, ripple, efficiency.
+
+**Elektromagnetische Velden — electromagnetics**
+
+- **Electrostatics** — Coulomb superposition field plot, Gauss-law field calculators, and capacitance formulas.
 
 ## Develop
 
