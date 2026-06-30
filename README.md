@@ -60,6 +60,10 @@ and numbers update live.
 - **Flyback Converter** — isolated SMPS with a turns-ratio slider: Vout = Vin·n·D, reflected primary current, duty/ripple/efficiency.
 - **Forward Converter** — isolated SMPS (non-flying) with the demag-winding D-clamp at 0.45: duty, ripple, efficiency.
 
+**Elektromagnetische Velden**
+
+- **Electromagnetic Waves** — plane-wave propagation: η, γ, skin depth, Poynting vector, polarization.
+
 ## Develop
 
 ```sh

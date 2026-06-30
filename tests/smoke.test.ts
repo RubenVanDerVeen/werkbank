@@ -55,3 +55,8 @@ test('comparator module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'comparator');
   assert.ok(m && m.course === 'Elektronica1B', 'comparator missing');
 });
+
+test('em-waves module registered under Elektromagnetische Velden', () => {
+  const m = modules.find((x) => x.id === 'em-waves');
+  assert.ok(m && m.course === 'Elektromagnetische Velden', 'em-waves missing');
+});
