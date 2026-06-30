@@ -3,14 +3,12 @@ import {
   superposeField, superposePotential, capacitance, gaussField,
   type Charge, type CapType, type GaussType,
 } from '../../math/electrostatics.ts';
-import { fieldPlot } from '../../ui/fieldplot.ts';
+import { fieldPlot, type FieldGrid } from '../../ui/fieldplot.ts';
 import { slider, selectWave } from '../../ui/inputs.ts';
 
 const RANGE = 5;
 const NX = 15, NY = 15;
 const VCAP = 50; // ponytail: capped arrow length; near-charge field diverges, clamp for readability
-
-type Grid = { nx: number; ny: number; vectors: { x: number; y: number; vx: number; vy: number }[] };
 
 function buildPreset(name: string): Charge[] {
   if (name === 'dipole') return [{ q: 1e-9, at: { x: -1, y: 0 } }, { q: -1e-9, at: { x: 1, y: 0 } }];
@@ -29,8 +27,8 @@ function buildPreset(name: string): Charge[] {
   return [{ q: 1e-9, at: { x: 0, y: 0 } }]; // single
 }
 
-function buildGrid(charges: Charge[]): Grid {
-  const vectors: Grid['vectors'] = [];
+function buildGrid(charges: Charge[]): FieldGrid {
+  const vectors: FieldGrid['vectors'] = [];
   const step = (2 * RANGE) / (NX - 1);
   for (let i = 0; i < NX; i++) for (let j = 0; j < NY; j++) {
     const x = -RANGE + i * step;
@@ -38,12 +36,12 @@ function buildGrid(charges: Charge[]): Grid {
     let E = { Ex: 0, Ey: 0 };
     try { E = superposeField(charges, { x, y }); }
     catch { /* ponytail: grid point on a charge, leave zero */ }
-    vectors.push({ x, y, vx: E.Ex, vy: E.Ey });
+    vectors.push({ x: i, y: j, vx: E.Ex, vy: E.Ey });
   }
   return { nx: NX, ny: NY, vectors };
 }
 
-function capVectors(grid: Grid): Grid {
+function capVectors(grid: FieldGrid): FieldGrid {
   for (const v of grid.vectors) {
     const m = Math.hypot(v.vx, v.vy);
     if (m > VCAP) { const s = VCAP / m; v.vx *= s; v.vy *= s; }
