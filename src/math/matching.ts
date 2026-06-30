@@ -76,6 +76,20 @@ export function lNetwork(zL: Complex, z0: number, f: number): LResult {
   return { solutions, q };
 }
 
+// Z after the FIRST element of an L-network solution (for Smith trajectory mid-point).
+// shunt-series: parallel of ZL and shunt element. series-shunt: ZL + jXs.
+export function intermediateZ(zL: Complex, _z0: number, sol: LSolution, f: number): Complex {
+  const w = 2 * Math.PI * f;
+  if (sol.order === 'shunt-series') {
+    if (sol.shunt.kind === null) return zL;
+    const Bp = susceptanceOf(sol.shunt, w);
+    const Zsh: Complex = { re: 0, im: -1 / Bp };
+    return cdiv(cmul(zL, Zsh), cadd(zL, Zsh));
+  }
+  const Xs = reactanceOf(sol.series, w);
+  return cadd(zL, { re: 0, im: Xs });
+}
+
 // Zin after applying an L-network solution (for |Γ| readout + Smith trajectory).
 export function applyLNetwork(zL: Complex, z0: number, sol: LSolution, f: number): Complex {
   const w = 2 * Math.PI * f;

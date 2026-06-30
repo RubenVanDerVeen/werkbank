@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { lNetwork, applyLNetwork, quarterWaveMatch, singleStub } from '../../src/math/matching.ts';
+import { lNetwork, applyLNetwork, intermediateZ, quarterWaveMatch, singleStub } from '../../src/math/matching.ts';
 
 const near = (a: number, b: number, eps = 1e-9) => Math.abs(a - b) < eps;
 
@@ -35,7 +35,7 @@ test('lNetwork ZL=50+j100 sol2 degenerate: shunt null, series C 1.5915pF', () =>
   assert.ok(near(s1.series.value, 1.5915494309189532e-12, 1e-15), `C=${s1.series.value}`);
 });
 
-test('lNetwork ZL=100, z0=50: q=1, sol1 shunt C 1.592pF + series L 7.958nH', () => {
+test('lNetwork ZL=100, z0=50: q=1, sol0 shunt C 1.592pF + series L 7.958nH', () => {
   const r = lNetwork({ re: 100, im: 0 }, 50, 1e9);
   assert.ok(near(r.q, 1), `q=${r.q}`);
   const s0 = r.solutions[0]!;
@@ -43,6 +43,24 @@ test('lNetwork ZL=100, z0=50: q=1, sol1 shunt C 1.592pF + series L 7.958nH', () 
   assert.ok(near(s0.shunt.value, 1.5915494309189534e-12, 1e-15));
   assert.equal(s0.series.kind, 'L');
   assert.ok(near(s0.series.value, 7.957747154594767e-9, 1e-12));
+});
+
+test('lNetwork ZL=100, z0=50 sol1: shunt L 15.915nH + series C 3.183pF', () => {
+  const r = lNetwork({ re: 100, im: 0 }, 50, 1e9);
+  const s1 = r.solutions[1]!;
+  assert.equal(s1.shunt.kind, 'L');
+  assert.ok(near(s1.shunt.value, 1.5915494309189536e-8, 1e-12), `L=${s1.shunt.value}`);
+  assert.equal(s1.series.kind, 'C');
+  assert.ok(near(s1.series.value, 3.1830988618379066e-12, 1e-15), `C=${s1.series.value}`);
+});
+
+test('intermediateZ ZL=50+j100 sol0: Z after shunt = 50-j100; then +jXs -> Z0', () => {
+  const r = lNetwork({ re: 50, im: 100 }, 50, 1e9);
+  const s0 = r.solutions[0]!;
+  const zMid = intermediateZ({ re: 50, im: 100 }, 50, s0, 1e9);
+  assert.ok(near(zMid.re, 50, 1e-9) && near(zMid.im, -100, 1e-9), `zMid=${JSON.stringify(zMid)}`);
+  const zin = applyLNetwork({ re: 50, im: 100 }, 50, s0, 1e9);
+  assert.ok(near(zin.re, 50, 1e-9) && near(zin.im, 0, 1e-9), `zin=${JSON.stringify(zin)}`);
 });
 
 test('singleStub ZL=100, z0=50: d≈{0.152,0.348}λ, lShort≈{0.152,0.348}λ, lOpen≈{0.098,0.402}λ', () => {

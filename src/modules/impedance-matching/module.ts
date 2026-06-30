@@ -2,7 +2,7 @@ import type { Module } from '../../module.ts';
 import type { Complex } from '../../math/complex.ts';
 import { cabs } from '../../math/complex.ts';
 import { zToGamma, zinLossless } from '../../math/tl.ts';
-import { lNetwork, applyLNetwork, quarterWaveMatch, singleStub, type LSolution, type ElementKind } from '../../math/matching.ts';
+import { lNetwork, applyLNetwork, intermediateZ, quarterWaveMatch, singleStub, type LSolution, type ElementKind } from '../../math/matching.ts';
 import { smithChart, type SmithPoint } from '../../ui/smith.ts';
 import { selectWave, slider } from '../../ui/inputs.ts';
 
@@ -42,7 +42,10 @@ function render(host: HTMLElement) {
         html += `<div><b>Q:</b> ${sig3(r.q)}</div>`;
         r.solutions.forEach((s: LSolution, i: number) => {
           const zin = applyLNetwork(zL, z0, s, f);
-          if (i === 0) pts.push({ z: zin, label: 'Z (sol 1)' });
+          if (i === 0) {
+            pts.push({ z: intermediateZ(zL, z0, s, f), label: 'Z (mid)' });
+            pts.push({ z: zin, label: 'Z (sol 1)' });
+          }
           html += `<div><b>Sol ${i + 1}</b> (${s.order}): shunt ${fmtEl(s.shunt.kind, s.shunt.value)}, series ${fmtEl(s.series.kind, s.series.value)} → |Γ|=${sig3(cabs(zToGamma(zin, z0)))}</div>`;
         });
       } else if (matchType.value() === 'λ/4 transformer') {
