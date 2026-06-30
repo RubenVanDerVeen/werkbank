@@ -59,6 +59,7 @@ and numbers update live.
 - **Buck-Boost (inverting)** — inverting SMPS with output polarity note; same readouts minus the ripple.
 - **Flyback Converter** — isolated SMPS with a turns-ratio slider: Vout = Vin·n·D, reflected primary current, duty/ripple/efficiency.
 - **Forward Converter** — isolated SMPS (non-flying) with the demag-winding D-clamp at 0.45: duty, ripple, efficiency.
+- **Transmission-Line Fundamentals** — distributed LGC line: Z₀, γ=α+jβ, phase velocity, distortionless condition.
 
 ## Develop
 

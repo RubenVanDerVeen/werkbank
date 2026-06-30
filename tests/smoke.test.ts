@@ -55,3 +55,8 @@ test('comparator module registered under Elektronica1B', () => {
   const m = modules.find((x) => x.id === 'comparator');
   assert.ok(m && m.course === 'Elektronica1B', 'comparator missing');
 });
+
+test('tl-fundamentals module registered under Hoogfrequenttechniek', () => {
+  const m = modules.find((x) => x.id === 'tl-fundamentals');
+  assert.ok(m && m.course === 'Hoogfrequenttechniek', 'tl-fundamentals missing');
+});
