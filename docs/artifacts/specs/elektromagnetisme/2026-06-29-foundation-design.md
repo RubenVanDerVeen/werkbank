@@ -106,7 +106,7 @@ Elektronica1B foundation — this foundation reuses it (no new complex layer).
 | `zToGamma(z, z0)` | `Γ = (z − z0)/(z + z0)` via `complex.ts` |
 | `gammaToZ(g, z0)` | `Z = z0 · (1 + Γ)/(1 − Γ)` |
 | `swr(g)` | `(1 + \|Γ\|)/(1 − \|Γ\|)`; throws on `\|Γ\| = 1` |
-| `zinLossless(zL, betaL, z0)` | `Z0 · (zL + j·tan(βl))/(Z0 + j·zL·tan(βl))` |
+| `zinLossless(zL, betaL, z0)` | `Z0 · (zL + j·Z0·tan(βl))/(Z0 + j·zL·tan(βl))` |
 | `quarterWaveZ(zL, z0)` | `Z0² / zL` (the λ/4 transformer match) |
 
 All `z`/`Z` values are `Complex` from `src/math/complex.ts`. `z0` and real loads
