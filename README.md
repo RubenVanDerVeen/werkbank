@@ -63,6 +63,7 @@ and numbers update live.
 **Elektromagnetische Velden — electromagnetics**
 
 - **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
+- **Linear Antenna Arrays** — array factor, beam scanning, nulls, HPBW, grating lobes.
 
 ## Develop
 
