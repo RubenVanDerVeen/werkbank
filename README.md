@@ -6,9 +6,9 @@ clicks.
 
 Built by one student, for the courses that needed it. Currently covers
 **Regeltechniek** (control systems), **Fourier** analysis,
-**Elektronica1A** (analog electronics), and **Vermelonselektronica**
-(power electronics / SMPS), and **Elektromagnetische Velden**
-(electromagnetics). New modules land as new courses come up.
+**Elektronica1A** (analog electronics), **Vermogenselektronica**
+(power electronics / SMPS), and **Elektromagnetisme** (electromagnetics,
+RF transmission lines, and antennas). New modules land as new courses come up.
 
 ## What's inside
 
@@ -60,35 +60,28 @@ and numbers update live.
 - **Buck-Boost (inverting)** — inverting SMPS with output polarity note; same readouts minus the ripple.
 - **Flyback Converter** — isolated SMPS with a turns-ratio slider: Vout = Vin·n·D, reflected primary current, duty/ripple/efficiency.
 - **Forward Converter** — isolated SMPS (non-flying) with the demag-winding D-clamp at 0.45: duty, ripple, efficiency.
+
+**Elektromagnetische Velden — electromagnetics**
+
+- **Electrostatics** — Coulomb superposition field plot, Gauss-law field calculators, and capacitance formulas.
+- **Magnetostatics** — Biot-Savart, Ampère law, inductance, magnetic reluctance.
 - **Maxwell & Induction** — Faraday, Lenz, motional emf, self/mutual inductance, displacement current.
-
-**Elektromagnetische Velden — electromagnetics**
-
-- **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
-- **Interactive Smith Chart** — Z↔Γ, admittance, SWR, constant-r/x circles, click-to-set.
-
-**Elektromagnetische Velden**
-
 - **Electromagnetic Waves** — plane-wave propagation: η, γ, skin depth, Poynting vector, polarization.
-
-**Elektromagnetische Velden — electromagnetics**
-
+- **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
 - **Rectangular Waveguides** — TE/TM cutoff, phase/group velocity, guide wavelength, TE10 field profile.
 
 **Hoogfrequenttechniek — RF / transmission lines**
 
+- **Transmission-Line Fundamentals** — distributed LGC line: Z₀, γ=α+jβ, phase velocity, distortionless condition.
 - **TL Input Impedance** — input impedance vs line length, SWR, reflection coefficient, λ/4 transformer.
-
-**Hoogfrequenttechniek — high-frequency techniques**
-
+- **Interactive Smith Chart** — Z↔Γ, admittance, SWR, constant-r/x circles, click-to-set.
 - **Impedance Matching** — L-networks, λ/4 transformer, and single-stub matching with a Smith-chart match trajectory.
-
-**Antennes — antennas**
-
-- **Dipole Radiation** — Hertzian and half-wave patterns: Rr, directivity, HPBW, Prad on a polar plot.
+- **S-Parameters & Two-Port** — two-port S→Z, Smith chart S11/S22, |S21| Bode, return/insertion loss, stability.
 
 **Antennes — antennas & propagation**
 
+- **Dipole Radiation** — Hertzian and half-wave patterns: Rr, directivity, HPBW, Prad on a polar plot.
+- **Linear Antenna Arrays** — array factor, beam scanning, nulls, HPBW, grating lobes.
 - **Link Budget & Radar** — Friis equation, EIRP, FSPL, radar equation, fade margin: received power vs distance.
 
 ## Develop

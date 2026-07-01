@@ -23,6 +23,18 @@ All notable changes to Werkbank are documented here. Format follows [Keep a Chan
 - Internal: transmission-line math helper (`src/math/tl.ts`), Smith chart SVG helper (`src/ui/smith.ts`), 2D field-plot SVG helper (`src/ui/fieldplot.ts`), and polar radiation-pattern SVG helper (`src/ui/polarplot.ts`) for the Elektromagnetisme modules.
 - Plane-Wave Incidence module: Snell's law, Fresnel reflection/transmission, TIR and Brewster angle.
 - Interactive Smith Chart module: Z↔Γ mapping, admittance mode, SWR / constant-r / constant-x circle overlays, and click-to-set-Z.
+- Electrostatics module: point-charge field/potential superposition, Gauss-law (sphere/cylinder/plane), and capacitance (plate/coax/sphere).
+- Magnetostatics module: Biot-Savart (wire, loop), Ampère (solenoid, toroid), inductance, reluctance, flux, with a 2D B-field cross-section plot.
+- Maxwell & Induction module: Faraday's law, motional emf, self/mutual inductance, displacement current with Φ(t)/emf(t) plot.
+- Electromagnetic Waves module: plane-wave impedance, propagation constant, skin depth, phase velocity, Poynting vector, and Ex/Ey polarization snapshot.
+- Rectangular Waveguides module: TE/TM cutoff, vp/vg, λg, TE10 field, transverse mode-pattern heat map.
+- Transmission-Line Fundamentals module: characteristic impedance, propagation constant, phase velocity, and Heaviside distortionless check for the LGC distributed model.
+- TL Input Impedance module: Zin sweep, SWR, |Γ|, voltage extrema, λ/4 transformer with Smith chart locus.
+- Impedance Matching module: L-networks, λ/4 transformer, single-stub matching with Smith-chart trajectory (Hoogfrequenttechniek).
+- S-Parameters & Two-Port module: two-port S→Z conversion, Smith chart S11/S22, |S21| Bode, return/insertion loss, transducer gain, Rollett stability.
+- Dipole Radiation module: Hertzian and half-wave patterns with Rr, directivity, HPBW, Prad and a polar plot (Antennes).
+- Linear Antenna Arrays module: ULA array factor, beam scanning, nulls, HPBW, grating lobes, pattern multiplication.
+- Link Budget & Radar module: Friis transmission, EIRP, FSPL, monostatic radar equation, fade margin with Pr-vs-distance sweep.
 
 ## [0.1.0] - 2026-06-27
 
