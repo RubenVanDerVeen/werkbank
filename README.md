@@ -83,6 +83,10 @@ and numbers update live.
 
 - **Impedance Matching** — L-networks, λ/4 transformer, and single-stub matching with a Smith-chart match trajectory.
 
+**Antennes — antennas**
+
+- **Dipole Radiation** — Hertzian and half-wave patterns: Rr, directivity, HPBW, Prad on a polar plot.
+
 ## Develop
 
 ```sh
