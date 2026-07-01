@@ -70,6 +70,10 @@ and numbers update live.
 
 - **Electromagnetic Waves** — plane-wave propagation: η, γ, skin depth, Poynting vector, polarization.
 
+**Elektromagnetische Velden — electromagnetics**
+
+- **Rectangular Waveguides** — TE/TM cutoff, phase/group velocity, guide wavelength, TE10 field profile.
+
 ## Develop
 
 ```sh
