@@ -74,6 +74,10 @@ and numbers update live.
 
 - **Rectangular Waveguides** — TE/TM cutoff, phase/group velocity, guide wavelength, TE10 field profile.
 
+**Hoogfrequenttechniek — RF / transmission lines**
+
+- **TL Input Impedance** — input impedance vs line length, SWR, reflection coefficient, λ/4 transformer.
+
 ## Develop
 
 ```sh
