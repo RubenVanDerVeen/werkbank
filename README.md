@@ -66,6 +66,10 @@ and numbers update live.
 
 - **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
 
+**Elektromagnetische Velden**
+
+- **Electromagnetic Waves** — plane-wave propagation: η, γ, skin depth, Poynting vector, polarization.
+
 ## Develop
 
 ```sh
