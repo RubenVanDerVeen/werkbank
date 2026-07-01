@@ -7,7 +7,8 @@ clicks.
 Built by one student, for the courses that needed it. Currently covers
 **Regeltechniek** (control systems), **Fourier** analysis,
 **Elektronica1A** (analog electronics), and **Vermelonselektronica**
-(power electronics / SMPS). New modules land as new courses come up.
+(power electronics / SMPS), and **Elektromagnetische Velden**
+(electromagnetics). New modules land as new courses come up.
 
 ## What's inside
 
