@@ -87,6 +87,10 @@ and numbers update live.
 
 - **Dipole Radiation** — Hertzian and half-wave patterns: Rr, directivity, HPBW, Prad on a polar plot.
 
+**Antennes — antennas & propagation**
+
+- **Link Budget & Radar** — Friis equation, EIRP, FSPL, radar equation, fade margin: received power vs distance.
+
 ## Develop
 
 ```sh
