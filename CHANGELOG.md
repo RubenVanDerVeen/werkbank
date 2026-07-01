@@ -22,6 +22,7 @@ All notable changes to Werkbank are documented here. Format follows [Keep a Chan
 - Comparator & Schmitt Trigger module: inverting/non-inverting thresholds, hysteresis, and transfer-loop plot.
 - Internal: transmission-line math helper (`src/math/tl.ts`), Smith chart SVG helper (`src/ui/smith.ts`), 2D field-plot SVG helper (`src/ui/fieldplot.ts`), and polar radiation-pattern SVG helper (`src/ui/polarplot.ts`) for the Elektromagnetisme modules.
 - Plane-Wave Incidence module: Snell's law, Fresnel reflection/transmission, TIR and Brewster angle.
+- Interactive Smith Chart module: Z↔Γ mapping, admittance mode, SWR / constant-r / constant-x circle overlays, and click-to-set-Z.
 
 ## [0.1.0] - 2026-06-27
 
