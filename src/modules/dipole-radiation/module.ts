@@ -49,7 +49,7 @@ function render(host: HTMLElement) {
       <div><b>Prad:</b> ${sig3(radiatedPower(I0.value(), Rr))} W</div>
     `;
     const series = [{ label: t, samples: samples(t) }];
-    polarPlot(plotHost, series, { db: scale.value() === 'dB' });
+    polarPlot(plotHost, series, { title: 'E-plane pattern', db: scale.value() === 'dB' });
   };
 
   for (const w of [type, lOverLambda, I0, scale]) {

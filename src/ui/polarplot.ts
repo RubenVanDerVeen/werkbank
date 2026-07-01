@@ -18,6 +18,17 @@ export function polarPlot(
   svg.setAttribute('height', String(H));
   host.appendChild(svg);
 
+  if (opts.title) {
+    const t = document.createElementNS(SVGNS, 'text');
+    t.setAttribute('x', String(cx));
+    t.setAttribute('y', '18');
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-size', '12');
+    t.setAttribute('fill', '#888');
+    t.textContent = opts.title;
+    svg.appendChild(t);
+  }
+
   const rings = opts.db ? [0, -10, -20, -30] : [0, 0.25, 0.5, 0.75, 1];
   for (const ring of rings) {
     const c = document.createElementNS(SVGNS, 'circle');
