@@ -79,6 +79,10 @@ and numbers update live.
 
 - **TL Input Impedance** — input impedance vs line length, SWR, reflection coefficient, λ/4 transformer.
 
+**Hoogfrequenttechniek — high-frequency techniques**
+
+- **Impedance Matching** — L-networks, λ/4 transformer, and single-stub matching with a Smith-chart match trajectory.
+
 ## Develop
 
 ```sh
