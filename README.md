@@ -64,6 +64,10 @@ and numbers update live.
 
 - **Plane-Wave Incidence** — Snell's law, Fresnel coefficients, critical and Brewster angles.
 
+**Antennes — antennas & propagation**
+
+- **Link Budget & Radar** — Friis equation, EIRP, FSPL, radar equation, fade margin: received power vs distance.
+
 ## Develop
 
 ```sh
